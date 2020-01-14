@@ -6,4 +6,6 @@
     <color name="blueGradient">#000046</color>
     <color name="lightBlueGradient">#6dd5ed</color>
     <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="cream">#e1e3de</color>
 </resources>

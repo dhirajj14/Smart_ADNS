@@ -5,25 +5,101 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="300sp"
+        android:layout_height="150sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/adsn"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Smart Accident Dectection and\nNotification System"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/loginLinearLayout"
-        android:padding="10sp"
+        android:padding="35sp"
         android:layout_gravity="center">
+
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:textColor="@color/white"
+        android:textAlignment="textStart"
+        />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login"
-            android:textSize="28sp"
+            android:text="User Name"
+            android:textSize="18sp"
+            android:layout_marginTop="15sp"
             android:textColor="@color/white"
             android:textAlignment="textStart"
             />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="35sp"
+            android:hint="dhirajj75"
+            android:textCursorDrawable="@null"
+            android:paddingLeft="10sp"
+            android:textSize="18sp"
+            android:layout_marginTop="5sp"
+            android:background="@drawable/edit_text_background"
+            android:textColorHint="@color/cream"
+            android:textColor="@color/blueGradient"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="18sp"
+            android:layout_marginTop="10sp"
+            android:textColor="@color/white"
+            android:textAlignment="textStart"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="35sp"
+            android:hint="password@hint"
+            android:textCursorDrawable="@null"
+            android:paddingLeft="10sp"
+            android:textSize="18sp"
+            android:layout_marginTop="5sp"
+            android:background="@drawable/edit_text_background"
+            android:textColorHint="@color/cream"
+            android:textColor="@color/blueGradient"
+            />
+
+        <Button
+            android:layout_width="150sp"
+            android:layout_height="35sp"
+            android:background="@drawable/button_background"
+            android:text="Login"
+            android:layout_gravity="center"
+            android:layout_marginTop="15sp"
+
+            android:textColor="@color/blueGradient"/>
 
 
     </LinearLayout>
