@@ -56,6 +56,7 @@
             />
 
         <EditText
+            android:id="@+id/loginUserName"
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:hint="dhirajj75"
@@ -79,6 +80,7 @@
             />
 
         <EditText
+            android:id="@+id/loginPassword"
             android:layout_width="match_parent"
             android:layout_height="35sp"
             android:hint="password@hint"
@@ -92,16 +94,43 @@
             />
 
         <Button
+            android:id="@+id/loginBtn"
             android:layout_width="150sp"
             android:layout_height="35sp"
             android:background="@drawable/button_background"
             android:text="Login"
             android:layout_gravity="center"
             android:layout_marginTop="15sp"
-
             android:textColor="@color/blueGradient"/>
 
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Not Registered yet?"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/registerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="Register"/>
     </LinearLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
