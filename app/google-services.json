@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1070316860883",
+    "firebase_url": "https://smartadns.firebaseio.com",
+    "project_id": "smartadns",
+    "storage_bucket": "smartadns.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070316860883:android:f62cf0d552d534ca32ab26",
+        "android_client_info": {
+          "package_name": "com.example.smartadns"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070316860883-2igaummpur7ikq02hg43btph9iuvbj0e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartadns",
+            "certificate_hash": "1b794bc5bbc4e379f0a3428e5d7193f49937d286"
+          }
+        },
+        {
+          "client_id": "1070316860883-13djp07k5vhuqibjl3j1mbmcuaokqt76.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe4OLn1XaAnkX6DwkKXjBDiN6ZjBidZXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070316860883-13djp07k5vhuqibjl3j1mbmcuaokqt76.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
