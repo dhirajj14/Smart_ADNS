@@ -3,6 +3,8 @@ package com.example.smartadns;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -16,6 +18,7 @@ public class RegisterUSer extends AppCompatActivity {
     private EditText registerEmailId;
     private EditText registerPassword;
     private EditText registerProductId;
+    private Button registerUserButton;
 
 
     @Override
@@ -31,10 +34,14 @@ public class RegisterUSer extends AppCompatActivity {
         registerEmailId = findViewById(R.id.registerEmailId);
         registerPassword  = findViewById(R.id.registerPassword);
         registerProductId = findViewById(R.id.registerProductId);
+        registerUserButton = findViewById(R.id.registerBtn);
 
-
-        
-
+        registerUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
 
     }
 }
