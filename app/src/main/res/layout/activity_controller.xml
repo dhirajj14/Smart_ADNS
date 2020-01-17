@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
     android:orientation="vertical"
     tools:context=".Controller">
 
@@ -14,9 +13,24 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
         app:titleTextColor="@color/blueGradient"
-        android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/lightBlueGradient"
+        app:tabIndicatorColor="@color/blueGradient"
+        app:tabIndicatorHeight="5dp"
+        app:tabSelectedTextColor="@color/blueGradient"
+        app:tabTextColor="@color/white"
+        android:minHeight="40dp"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/tab_layout"/>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
