@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -53,13 +55,14 @@ public class RegisterUSer extends AppCompatActivity {
         registerUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
                 public void onClick(View v) {
-                firstName = registerFirstName.getText().toString();
-                lastName = registerLastName.getText().toString();
-                email = registerEmailId.getText().toString();
-                password = registerPassword.getText().toString();
-                productId = registerProductId.getText().toString();
 
-                registerUser(email, password);
+                if(!validateForm()){
+                    Toast.makeText(RegisterUSer.this, "Enter all the fields.",
+                            Toast.LENGTH_SHORT).show();
+                }else{
+                    registerUser(email, password);
+                }
+
             }
         });
 
@@ -88,5 +91,51 @@ public class RegisterUSer extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    private boolean validateForm() {
+        boolean valid = true;
+
+        firstName = registerFirstName.getText().toString();
+        if (TextUtils.isEmpty(firstName)) {
+            registerFirstName.setError(Html.fromHtml("Reqired"));
+            valid = false;
+        } else {
+            registerFirstName.setError(null);
+        }
+
+        lastName = registerLastName.getText().toString();
+        if (TextUtils.isEmpty(lastName)) {
+            registerLastName.setError(Html.fromHtml("Reqired"));
+            valid = false;
+        } else {
+            registerLastName.setError(null);
+        }
+
+        email = registerEmailId.getText().toString();
+        if (TextUtils.isEmpty(email)) {
+            registerEmailId.setError(Html.fromHtml("Reqired"));
+            valid = false;
+        } else {
+            registerEmailId.setError(null);
+        }
+
+        password = registerPassword.getText().toString();
+        if (TextUtils.isEmpty(password)) {
+            registerPassword.setError(Html.fromHtml("Reqired"));
+            valid = false;
+        } else {
+            registerPassword.setError(null);
+        }
+
+        productId = registerProductId.getText().toString();
+        if (TextUtils.isEmpty(productId)) {
+            registerProductId.setError(Html.fromHtml("Reqired"));
+            valid = false;
+        } else {
+            registerProductId.setError(null);
+        }
+
+        return valid;
     }
 }
