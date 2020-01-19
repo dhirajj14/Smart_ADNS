@@ -30,12 +30,13 @@ public class MainActivity extends AppCompatActivity {
     private String password;
     private static final String TAG="Log";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent login  = new Intent(MainActivity.this, Controller.class);
-        startActivity(login);
+
+
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent registerBtn  = new Intent(MainActivity.this, RegisterUSer.class);
                 startActivity(registerBtn);
+
             }
         });
 
@@ -62,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
                }else {
                    login(email,password);
                }
-
             }
         });
     }

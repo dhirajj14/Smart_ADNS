@@ -16,7 +16,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class RegisterUSer extends AppCompatActivity {
 
@@ -60,7 +63,27 @@ public class RegisterUSer extends AppCompatActivity {
                     Toast.makeText(RegisterUSer.this, "Enter all the fields.",
                             Toast.LENGTH_SHORT).show();
                 }else{
-                    registerUser(email, password);
+
+
+                    FirebaseDatabase.getInstance().getReference("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if(dataSnapshot.child(productId).exists()){
+                                Toast.makeText(RegisterUSer.this, "User Already registered with product ID",
+                                        Toast.LENGTH_SHORT).show();
+                                Log.d(TAG, "Already present:success");
+                            }else {
+                                registerUser(email, password);
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+
+                    });
+
                 }
 
             }
@@ -68,7 +91,7 @@ public class RegisterUSer extends AppCompatActivity {
 
     }
 
-    void registerUser(String email, String password){
+    void registerUser(final String email, String password){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -76,7 +99,11 @@ public class RegisterUSer extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
+                            User user = new User(firstName, lastName, email);
+                            FirebaseDatabase.getInstance().getReference("Users")
+                                    .child(productId)
+                                    .setValue(user);
+                            FirebaseAuth.getInstance().signOut();
                             Toast.makeText(RegisterUSer.this, "Authentication Success.",
                                     Toast.LENGTH_SHORT).show();
 

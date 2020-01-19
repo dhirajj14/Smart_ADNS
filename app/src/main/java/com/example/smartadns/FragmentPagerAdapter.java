@@ -17,7 +17,7 @@ public class FragmentPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                mapFragment tab1 = new mapFragment();
+                MapFragment tab1 = new MapFragment();
                 return tab1;
             case 1:
                 contactDisplayFragment tab2 = new contactDisplayFragment();
