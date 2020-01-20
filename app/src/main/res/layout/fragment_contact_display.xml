@@ -6,9 +6,126 @@
     tools:context=".contactDisplayFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="update" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_margin="20dp">
 
+
+        <ImageView
+            android:background="@drawable/display_circle"
+            android:id="@+id/btnMore"
+            android:layout_width="120dp"
+            android:layout_gravity="center"
+            android:layout_height="120dp"
+            android:src="@drawable/adsn"/>
+
+        <TextView
+            android:id="@+id/contactName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Name"
+            android:layout_gravity="center"
+            android:textSize="22sp"
+            android:textColor="@color/lightBlueGradient"
+            android:textStyle="bold"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emai-Id"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="left"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+
+
+        <TextView
+            android:id="@+id/contactEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dhirajj75@gmail.com"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="left"
+            android:textSize="14sp"
+            android:textColor="@color/lightBlueGradient"
+            />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/grey" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact No"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="left"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+
+
+        <TextView
+            android:id="@+id/contactNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+1 312 123 4444"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="left"
+            android:textSize="14sp"
+            android:textColor="@color/lightBlueGradient"
+            />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/grey" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product ID"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="left"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+
+
+        <TextView
+            android:id="@+id/contactID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123455"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="left"
+            android:textSize="14sp"
+            android:textColor="@color/lightBlueGradient"
+            />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/grey" />
+
+    </LinearLayout>
 </FrameLayout>

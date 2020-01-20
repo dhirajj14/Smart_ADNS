@@ -1,24 +1,24 @@
 package com.example.smartadns;
 
 public class User {
-    private String firstName, lastName, email, code;
+    private String firstName, lastName, email, contact, productId;
+
+    public User(String firstName, String lastName, String email, String contact, String productId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.contact = contact;
+        this.productId = productId;
+    }
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email) {
-
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
-
-
-    public String getName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
@@ -38,5 +38,19 @@ public class User {
         this.email = email;
     }
 
+    public String getContact() {
+        return contact;
+    }
 
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
 }
