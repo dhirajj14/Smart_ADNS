@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 
 import android.view.LayoutInflater;
@@ -45,6 +46,7 @@ public class contactDisplayFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_contact_display, container, false);
 
 
+
     }
 
     @Override
@@ -56,10 +58,14 @@ public class contactDisplayFragment extends Fragment {
         contactNo = getView().findViewById(R.id.contactNo);
         contactProductId = getView().findViewById(R.id.contactID);
 
+
+
         FirebaseDatabase.getInstance().getReference("Users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 if(dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).exists()){
+
                      DataSnapshot child = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid());
                         User value = child.getValue(User.class);
                         contactName.setText(value.getFirstName() +" "+ value.getLastName());

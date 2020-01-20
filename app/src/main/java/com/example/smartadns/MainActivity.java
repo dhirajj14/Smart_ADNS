@@ -93,6 +93,24 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
+
+    //auto_login with email and password
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser !=null){
+            Intent w_menu = new Intent(MainActivity.this, Controller.class);
+            w_menu.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            w_menu.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(w_menu);
+            finish();
+
+        }
+    };
+    //end
+
     private boolean validateForm() {
         boolean valid = true;
         email = loginEmailId.getText().toString();
