@@ -1,12 +1,19 @@
 package com.example.smartadns;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,14 +21,35 @@ import android.view.View;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import static android.content.ContentValues.TAG;
+import static com.example.smartadns.App.CHANNEL_1_ID;
 
 public class Controller extends AppCompatActivity {
 
+    private NotificationManagerCompat notificationManager;
+
+
+    private String productID;
+    private String status;
     private MenuItem logoutButton;
+    private Notification notification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
+
+
+
+
 
         logoutButton = findViewById(R.id.logoutBtn);
 
@@ -79,6 +107,7 @@ public class Controller extends AppCompatActivity {
 
             }
         });
+
     }
 
 

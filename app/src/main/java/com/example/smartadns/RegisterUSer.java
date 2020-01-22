@@ -3,6 +3,7 @@ package com.example.smartadns;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
@@ -115,6 +116,10 @@ public class RegisterUSer extends AppCompatActivity {
                             FirebaseAuth.getInstance().signOut();
                             Toast.makeText(RegisterUSer.this, "Authentication Success.",
                                     Toast.LENGTH_SHORT).show();
+                            Intent login = new Intent(RegisterUSer.this, MainActivity.class);
+                            login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            login.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(login);
 
                         } else {
                             // If sign in fails, display a message to the user.
