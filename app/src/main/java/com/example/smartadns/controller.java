@@ -45,11 +45,8 @@ public class Controller extends AppCompatActivity {
 
 
 
-
-
-
-
-
+        Intent i = new Intent(this, NotifyService.class);
+        startService(i);
 
         logoutButton = findViewById(R.id.logoutBtn);
 
@@ -99,7 +96,7 @@ public class Controller extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
-                adapter.notifyDataSetChanged(); //this line will force all pages to be loaded fresh when changing between fragments
+               // adapter.notifyDataSetChanged(); //this line will force all pages to be loaded fresh when changing between fragments
             }
 
             @Override

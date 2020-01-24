@@ -64,15 +64,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback  {
         mapView.onResume();
         mapView.getMapAsync(this);
 
-        notificationManager = NotificationManagerCompat.from(getView().getContext());
 
-        notification = new NotificationCompat.Builder(getView().getContext(), CHANNEL_1_ID)
-                .setSmallIcon(R.drawable.adsn)
-                .setContentTitle("Accident")
-                .setContentText("There is a accident Please check the application")
-                .setPriority(NotificationCompat.PRIORITY_HIGH)
-                .setCategory(NotificationCompat.CATEGORY_ALARM)
-                .build();
 
 
     }
@@ -103,7 +95,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback  {
 
         });
 
-        FirebaseDatabase.getInstance().getReference("Products").addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Products").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 DataSnapshot child = dataSnapshot.child(productID);
@@ -112,19 +104,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback  {
                 marker = new LatLng((Float.parseFloat(mapValue.getLatitude())/100),(Float.parseFloat(mapValue.getLongitude())/100));
                 System.out.println(marker);
                 // Add a marker in Sydney, Australia, and move the camera.
-                status = mapValue.getAccidentStatus();
                 if(marker != null) {
                     mMap.addMarker(new MarkerOptions().position(marker).title("Accident Place"));
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(marker, 15));
-
-                }
-                if(status.equals("1")){
-                    Log.d(TAG,"Service"+status);
-                    notificationManager.notify(1,notification);
-                    Uri notification1 = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
-                    Ringtone r = RingtoneManager.getRingtone(getView().getContext(), notification1);
-                    r.play();
-
                 }
             }
 

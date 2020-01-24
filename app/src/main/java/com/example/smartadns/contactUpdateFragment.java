@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -50,11 +51,29 @@ public class contactUpdateFragment extends Fragment {
             public void onClick(View v) {
 
                 myRef = FirebaseDatabase.getInstance().getReference("Users/"+FirebaseAuth.getInstance().getCurrentUser().getUid());
-                myRef.child("firstName").setValue(updateFirstName.getText().toString());
-                myRef.child("lastName").setValue(updateLastName.getText().toString());
-                myRef.child("contact").setValue(updatecontactNo.getText().toString());
+                if(!updateFirstName.getText().toString().equals("")) {
+                    myRef.child("firstName").setValue(updateFirstName.getText().toString());
+                    updateToast();
+                }
 
+                if(!updateLastName.getText().toString().equals("")) {
+                    myRef.child("lastName").setValue(updateLastName.getText().toString());
+                    updateToast();
+                }
+
+                if(!updatecontactNo.getText().toString().equals("")) {
+                    myRef.child("contact").setValue(updatecontactNo.getText().toString());
+                    updateToast();
+                }
+                updateFirstName.setText("");
+                updateLastName.setText("");
+                updatecontactNo.setText("");
             }
         });
+    }
+
+    private void updateToast(){
+        Toast.makeText(getView().getContext(), "Details Updated.",
+                Toast.LENGTH_SHORT).show();
     }
 }

@@ -4,6 +4,9 @@ import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -30,6 +33,7 @@ public class NotifyService extends Service {
 
     private String productID;
     private String status;
+    private Notification notification1;
     private NotificationManagerCompat notificationManager;
 
     @Override
@@ -51,7 +55,62 @@ public class NotifyService extends Service {
                 .build();
         notificationManager.notify(2, notification);
 
+
+        notification1 = new NotificationCompat.Builder(this, CHANNEL_1_ID)
+                .setSmallIcon(R.drawable.adsn)
+                .setContentTitle("Accident")
+                .setContentText("There is a accident Please check the application")
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setCategory(NotificationCompat.CATEGORY_ALARM)
+                .build();
+        accidentNotify();
         return START_NOT_STICKY;
+    }
+
+    private void accidentNotify() {
+        FirebaseDatabase.getInstance().getReference("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).exists()){
+
+                    DataSnapshot child = dataSnapshot.child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    User value = child.getValue(User.class);
+                    productID = value.getProductId();
+                    Log.d(TAG, productID);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+        });
+
+        FirebaseDatabase.getInstance().getReference("Products").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                DataSnapshot child = dataSnapshot.child(productID);
+                Log.d(TAG, child.toString());
+                MapInfo mapValue = child.getValue(MapInfo.class);
+                status = mapValue.getAccidentStatus();
+                if(status.equals("1")){
+                    Log.d(TAG,"Service"+status);
+                    notificationManager.notify(1,notification1);
+                    Uri notification1 = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE);
+                    Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification1);
+                    r.play();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
 
     @Override
