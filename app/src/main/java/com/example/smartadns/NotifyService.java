@@ -62,6 +62,7 @@ public class NotifyService extends Service {
                 .setContentText("There is a accident Please check the application")
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_ALARM)
+                .addAction(R.drawable.common_google_signin_btn_icon_dark_normal, "Turn OFF driving mode", stopNotify())
                 .build();
         accidentNotify();
         return START_NOT_STICKY;
@@ -113,6 +114,10 @@ public class NotifyService extends Service {
 
     }
 
+
+    private void stopNotify(){
+
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
